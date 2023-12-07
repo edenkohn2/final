@@ -1,0 +1,93 @@
+﻿<Window x:Class="פרויקט.SecondWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:פרויקט"
+        mc:Ignorable="d"
+        Title="SecondWindow" Height="450" Width="800">
+    <Grid>
+
+        <Grid.RowDefinitions>
+
+            <RowDefinition />
+            <RowDefinition/>
+            <RowDefinition/>
+
+
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+
+
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="3*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="1*"/>
+
+
+        </Grid.ColumnDefinitions>
+
+        <StackPanel>
+            <TextBlock  x:Name="Title" Grid.Row="0" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="User" VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI" FontWeight="Bold" Foreground="CornflowerBlue"/>
+            <TextBlock  x:Name="Rank" Grid.Row="0" HorizontalAlignment="Left" Margin="10,20,0,0" TextWrapping="Wrap" Text="Points :"   VerticalAlignment="Top" FontSize="24" FontFamily="Segoe UI" FontWeight="Bold" Foreground="CornflowerBlue"/>
+        </StackPanel>
+        <TextBlock x:Name="number1" FontSize="35" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="num1" VerticalAlignment="Center" RenderTransformOrigin="0.224,1.624" Margin="10,0,0,0"/>
+        <TextBlock x:Name="number2" FontSize="35" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="num2" VerticalAlignment="Center" RenderTransformOrigin="0.224,1.624" Margin="85,0,0,0" Grid.Column="1"/>
+        <TextBlock x:Name="operator1" FontSize="35" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="+" VerticalAlignment="Center" RenderTransformOrigin="0.224,1.624" Margin="159,0,0,0" Grid.ColumnSpan="2"/>
+        <TextBlock x:Name="operator2" FontSize="35" HorizontalAlignment="Left" Grid.Row="1" TextWrapping="Wrap" Text="=" VerticalAlignment="Center" RenderTransformOrigin="0.224,1.624" Margin="242,0,0,0" Grid.Column="1"/>
+        <TextBox x:Name="Resault" Grid.Column="2" HorizontalAlignment="Left" Margin="25,0,0,0" Grid.Row="1" TextWrapping="Wrap" Text="" VerticalAlignment="Center" Width="120" Height="18"/>
+        <Button x:Name="check" Grid.Column="2" Content="Check" FontSize="24" HorizontalAlignment="Left" Margin="49,104,0,0" Grid.Row="1" VerticalAlignment="Top" RenderTransformOrigin="0.157,0.556" Click="check_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Rectangle x:Name="ButtonBackground" Fill="#FF4CAF50" RadiusX="10" RadiusY="10"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBackground" Property="Fill" Value="#FF388E3C"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonBackground" Property="Fill" Value="#FF1B5E20"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <Button x:Name="Quit" FontSize="15" Grid.Column="3" Content="Quit Game" HorizontalAlignment="Center" Margin="0,97,0,0" Grid.Row="2" VerticalAlignment="Top" Click="Quit_Click">
+            <Button.Template>
+                <ControlTemplate TargetType="Button">
+                    <Grid>
+                        <Rectangle x:Name="ButtonBackground" Fill="LightSeaGreen" RadiusX="10" RadiusY="10"/>
+                        <ContentPresenter HorizontalAlignment="Center" VerticalAlignment="Center"/>
+                    </Grid>
+                    <ControlTemplate.Triggers>
+                        <Trigger Property="IsMouseOver" Value="True">
+                            <Setter TargetName="ButtonBackground" Property="Fill" Value="#FF388E3C"/>
+                        </Trigger>
+                        <Trigger Property="IsPressed" Value="True">
+                            <Setter TargetName="ButtonBackground" Property="Fill" Value="#FF1B5E20"/>
+                        </Trigger>
+                    </ControlTemplate.Triggers>
+                </ControlTemplate>
+            </Button.Template>
+        </Button>
+        <TextBox x:Name="TimerText"  Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Top" FontSize="20" IsReadOnly="True" BorderThickness="0" Background="Transparent">
+            <TextBox.Text>
+                <MultiBinding StringFormat="Time Left: {0} seconds">
+                    <Binding Path="TimeLeft" RelativeSource="{RelativeSource FindAncestor, AncestorType={x:Type local:SecondWindow}}" />
+                </MultiBinding>
+            </TextBox.Text>
+        </TextBox>
+
+
+
+
+
+
+
+
+    </Grid>
+
+</Window>
